@@ -1,5 +1,5 @@
-package lab2;
-public class main {
+package lab2.b1;
+public class Main {
     public static void main(String[] args) {
         Student studentA;
         Student studentB;

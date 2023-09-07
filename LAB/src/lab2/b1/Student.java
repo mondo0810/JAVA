@@ -1,4 +1,4 @@
-package lab2;
+package lab2.b1;
 
 public class Student
 {
