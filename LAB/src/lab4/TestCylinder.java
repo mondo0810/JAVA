@@ -31,12 +31,12 @@ class Cylinder extends Circle {
     private double height;
 
     public Cylinder() {
-        super(); // Calls the default constructor of the superclass Circle
+        super();
         this.height = 1.0;
     }
 
     public Cylinder(double radius, String color, double height) {
-        super(radius, color); // Calls the parameterized constructor of the superclass Circle
+        super(radius, color);
         this.height = height;
     }
 
