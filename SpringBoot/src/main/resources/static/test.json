@@ -1,0 +1,38 @@
+[
+  {
+    "category_id": 1,
+    "title": "Trees",
+    "image": "https://i.pinimg.com/564x/e4/f1/d3/e4f1d30a32dbbee6cc3383f81273eabf.jpg",
+    "quantity": 6
+  },
+  {
+    "category_id": 2,
+    "title": "Plants",
+    "image": "https://i.pinimg.com/564x/63/ce/df/63cedfb2537f44bd9ba1bfc9a30748bb.jpg",
+    "quantity": 6
+  },
+  {
+    "category_id": 3,
+    "title": "Flowers",
+    "image": "https://i.pinimg.com/564x/ff/3e/e3/ff3ee37681371c4e8131b68af4cd9111.jpg",
+    "quantity": 6
+  },
+  {
+    "category_id": 4,
+    "title": "Bonsais",
+    "image": "https://i.pinimg.com/564x/98/6a/29/986a29d5c12bbf9c0673bc3a24b4a2c6.jpg",
+    "quantity": 6
+  },
+  {
+    "category_id": 5,
+    "title": "Wreaths",
+    "image": "https://i.pinimg.com/736x/98/1f/8d/981f8d87d0aac840098fd7820217a9bd.jpg",
+    "quantity": 4
+  },
+  {
+    "category_id": 6,
+    "title": "Pots",
+    "image": "https://i.pinimg.com/564x/01/2c/10/012c100cbe5617cd27a501098f4c62f6.jpg",
+    "quantity": 4
+  }
+]
