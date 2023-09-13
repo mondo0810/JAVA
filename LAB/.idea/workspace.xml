@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2df0597b-a4a3-413a-a483-66ae389d89cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lab6/b1/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lab6/b1/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lab6/b2/UncheckedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lab6/b3/MoreClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lab6/b4triangle/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lab6/TestException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lab6/TestException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lab6/b2/UncheckedException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lab6/b2/UncheckedException.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,13 +80,26 @@
       <recent name="E:\IT_THIBLUE\JAVA\JAVA\LAB" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UncheckedException">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="lab5.shape.Main" />
+      <option name="MAIN_CLASS_NAME" value="lab6.b4triangle.Main" />
       <module name="LAB" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="lab5.shape.*" />
+          <option name="PATTERN" value="lab6.b4triangle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MoreClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lab6.b3.MoreClass" />
+      <module name="LAB" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lab6.b3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,19 +133,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="lab5.Movable.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="lab5.Movable.Main" />
-      <module name="LAB" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="lab5.Movable.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="lab6.b1.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lab6.b1.Main" />
       <module name="LAB" />
@@ -150,11 +148,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MoreClass" />
         <item itemvalue="Application.UncheckedException" />
         <item itemvalue="Application.lab6.b1.Main" />
         <item itemvalue="Application.TestException" />
-        <item itemvalue="Application.lab5.Movable.Main" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +173,7 @@
       <workItem from="1694140906466" duration="6692000" />
       <workItem from="1694398904400" duration="3600000" />
       <workItem from="1694407097095" duration="2052000" />
-      <workItem from="1694569714470" duration="3581000" />
+      <workItem from="1694569714470" duration="4049000" />
     </task>
     <servers />
   </component>
