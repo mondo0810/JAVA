@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2df0597b-a4a3-413a-a483-66ae389d89cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lab6/TestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lab6/b1/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lab6/b1/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lab6/b2/UncheckedException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lab6/TestException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lab6/TestException.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +82,7 @@
       <recent name="E:\IT_THIBLUE\JAVA\JAVA\LAB" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TestException">
+  <component name="RunManager" selected="Application.UncheckedException">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lab5.shape.Main" />
       <module name="LAB" />
@@ -97,7 +101,20 @@
       <module name="LAB" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="lab6.*" />
+          <option name="PATTERN" value="lab6.b1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UncheckedException" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lab6.b2.UncheckedException" />
+      <module name="LAB" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lab6.b2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,25 +135,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="lab5.taxpayer.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="lab5.taxpayer.Main" />
+    <configuration name="lab6.b1.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lab6.b1.Main" />
       <module name="LAB" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="lab5.taxpayer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="lab6.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="lab6.Main" />
-      <module name="LAB" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="lab6.*" />
+          <option name="PATTERN" value="lab6.b1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -146,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.UncheckedException" />
+        <item itemvalue="Application.lab6.b1.Main" />
         <item itemvalue="Application.TestException" />
-        <item itemvalue="Application.lab6.Main" />
         <item itemvalue="Application.lab5.Movable.Main" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.lab5.taxpayer.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -170,6 +174,8 @@
       <workItem from="1694140745600" duration="152000" />
       <workItem from="1694140906466" duration="6692000" />
       <workItem from="1694398904400" duration="3600000" />
+      <workItem from="1694407097095" duration="2052000" />
+      <workItem from="1694569714470" duration="3581000" />
     </task>
     <servers />
   </component>
@@ -186,5 +192,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArithmeticException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
