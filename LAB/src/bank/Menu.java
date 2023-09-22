@@ -48,6 +48,33 @@ public class Menu {
     }
 
     public void getAccountType(AccountBank acc) {
+        boolean flag = false;
+        while (!flag) {
+            try {
+                System.out.println("Choice your account type");
+                System.out.println("\n1. Checking Account");
+                System.out.println("\n2. Saving Account");
+                System.out.println("\n3: Exit");
+                switch (choice) {
+                    case 1:
+                        getChecking(acc);
+                        break;
+                    case 2:
+                        getSaving(acc);
+                        break;
+                    case 3:
+                        flag = true;
+                        break;
+                    default:
+                        System.out.println("\nInvalid choice");
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+        }
     }
 
     public void getSaving(AccountBank acc) {
