@@ -1,5 +1,6 @@
 package lab6.b4triangle;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -51,13 +52,19 @@ public class Main {
                 double side3 = scanner.nextDouble();
 
                 triangles[i] = new Triangle(side1, side2, side3);
-            } catch (InvalidTriangleException ex) {
-                System.out.println("Error: " + ex.getMessage());
-                i--; // Re-enter values for the current triangle
             }
+            catch (InputMismatchException ex) {
+                System.out.println("Error: Invalid input. Please enter valid numeric values.");
+                scanner.nextLine();
+                i--;
+            }
+            catch (InvalidTriangleException ex) {
+                System.out.println("Error: " + ex.getMessage());
+                i--;
+            }
+
         }
 
-        // Calculate and print the area of the fifth triangle
         double area = triangles[4].calculateArea();
         System.out.println("Area of the fifth triangle: " + area);
 
