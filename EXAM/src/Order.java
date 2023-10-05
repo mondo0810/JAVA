@@ -38,6 +38,7 @@ public class Order {
         System.out.println("Transaction Time: " + dateFormat.format(transactionTime));
         System.out.println("Line Items:");
         for (LineItem lineItem : lineItems) {
+            double itemCost = lineItem.cost();
             System.out.println("- " + lineItem.getProduct().getName() + " (Quantity: " + lineItem.getQuantity() + ")");
         }
         System.out.println("Total Cost: $" + cost());
