@@ -1,4 +1,4 @@
-package lab1car;
+package lab1.lab1car;
 
 public class Race {
     public static void main(String a[]) {

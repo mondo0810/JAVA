@@ -1,4 +1,4 @@
-package lab1car;
+package lab1.lab1car;
 
 //RaceCar method extends Thread. Therefore, It is runnable.
 class RaceCar extends Thread
