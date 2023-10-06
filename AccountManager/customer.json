@@ -1,0 +1,24 @@
+{
+  "address": {
+    "city": "Hanoi"
+  },
+  "name": "abc",
+  "project": [
+    {
+      "shop": "snne",
+      "budget": 2000
+    },
+    {
+      "shop": "snne",
+      "budget": 2000
+    }
+  ],
+  "payment": [
+    "Papayl",
+    "Momo",
+    "Apple Pay"
+  ],
+  "id": 2,
+  "email": "abc@kdj",
+  "age": 19
+}

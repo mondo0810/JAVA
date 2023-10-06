@@ -16,7 +16,6 @@ public class Repository {
         //Chuyen tu JSON -> Object
         Type objectType = new TypeToken<List<User>>() {}.getType();
         users = new Gson().fromJson(reader, objectType);
-        System.out.println(users);
         return users;
     }
 
