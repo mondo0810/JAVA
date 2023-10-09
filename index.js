@@ -5,8 +5,4 @@ for (i = 0; i < 100; i++) {
     console.log("B" + i)
 }
 
-for (i = 0; i < 100; i++) {
-    console.log("Cccc" + i)
-}
-
 
