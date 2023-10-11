@@ -1,4 +1,4 @@
-package org.example.test;
+package Person;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,7 +12,7 @@ public class ConnectJDBC {
 
     private String connectionURL = "jdbc:mysql://"+hostName+"/"+dbName;
 
-    public Connection connect(){
+    public static Connection connect(){
         //Tạo đối tượng Connection
         Connection conn = null;
 

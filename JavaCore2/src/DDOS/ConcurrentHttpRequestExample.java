@@ -10,7 +10,7 @@ import java.util.concurrent.Executors;
 
 public class ConcurrentHttpRequestExample {
     public static void main(String[] args) {
-        String url = "https://tuanori.com";  // Thay thế bằng URL của trang web bạn muốn gửi request tới
+        String url = "http://localhost:8000/";  // Thay thế bằng URL của trang web bạn muốn gửi request tới
         int numThreads = 1000000000;  // Số lượng luồng
 
         // Tạo một ExecutorService với số lượng luồng cần tạo
