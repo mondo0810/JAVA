@@ -95,10 +95,10 @@ public class Main {
         System.out.print("Enter new name: ");
         String name = scanner.nextLine();
 
-        System.out.print("Enter new email: ");
-        String email = scanner.nextLine();
+        System.out.print("Enter new password: ");
+        String password = scanner.nextLine();
 
-        Customer updatedCustomer = new Customer(customerId, name, email);
+        Customer updatedCustomer = new Customer(customerId, name, password);
         customerDAO.updateCustomer(customerId, updatedCustomer);
         System.out.println("Customer updated successfully.");
     }
