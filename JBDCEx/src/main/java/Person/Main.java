@@ -1,7 +1,5 @@
 package Person;
 
-import org.example.test.ConnectJDBC;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
