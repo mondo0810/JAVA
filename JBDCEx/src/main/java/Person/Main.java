@@ -20,13 +20,13 @@ public class Main {
 
     public static void main(String[] args) {
         ConnectJDBC connectJDBC = new ConnectJDBC();
-        Connection connection = connectJDBC.connect();
-        if (connection == null) {
+        Connection conn = connectJDBC.connect();
+        if (conn == null) {
             System.out.println("Failed to connect to the database.");
             return;
         }
 
-        customerDAO = new CustomerDAO(connection);
+        customerDAO = new CustomerDAO(conn);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -67,7 +67,7 @@ public class Main {
         } while (choice != 6);
 
         try {
-            connection.close();
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -122,6 +122,9 @@ public class Main {
     private static void displayAllCustomers() throws SQLException {
         System.out.println("All customers:");
         List<Customer> allCustomers = customerDAO.getAllCustomers();
+//        allCustomers.forEach(customer ->{
+//            System.out.println("Customer ID: " + customer.getId() + ", Name: " + customer.getName());
+//        });
         for (Customer cust : allCustomers) {
             System.out.println("Customer ID: " + cust.getId() + ", Name: " + cust.getName());
         }
