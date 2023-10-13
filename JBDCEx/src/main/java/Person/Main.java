@@ -125,7 +125,7 @@ public class Main {
         System.out.println("All customers:");
         List<Customer> allCustomers = customerDAO.getAllCustomers();
         for (Customer cust : allCustomers) {
-            System.out.println("Customer ID: " + cust.getId() + ", Name: " + cust.getName() + ", Email: " + cust.getPassword());
+            System.out.println("Customer ID: " + cust.getId() + ", Name: " + cust.getName());
         }
     }
 }

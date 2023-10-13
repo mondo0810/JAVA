@@ -12,6 +12,11 @@ public class Customer {
         this.password = password;
     }
 
+    public Customer(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }

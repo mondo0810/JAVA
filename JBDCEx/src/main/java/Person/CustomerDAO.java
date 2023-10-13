@@ -49,8 +49,7 @@ public class CustomerDAO {
             if (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
-                String password = resultSet.getString("password");
-                return new Customer(id, name, password);
+                return new Customer(id, name);
             }
             return null;
         }
@@ -64,8 +63,7 @@ public class CustomerDAO {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
-                String password = resultSet.getString("password");
-                customers.add(new Customer(id, name, password));
+                customers.add(new Customer(id, name));
             }
         }
         return customers;
