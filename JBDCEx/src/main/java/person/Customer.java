@@ -1,4 +1,4 @@
-package Person;
+package person;
 
 public class Customer {
     private int id;
