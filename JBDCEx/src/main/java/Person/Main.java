@@ -37,7 +37,7 @@ public class Main {
             Menu();
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
-            scanner.nextLine();  // Consume the newline character
+            scanner.nextLine();
 
             try {
                 switch (choice) {

@@ -12,7 +12,7 @@ public class ConnectJDBC {
 
     private String connectionURL = "jdbc:mysql://"+hostName+"/"+dbName;
 
-    public static Connection connect(){
+    public Connection connect(){
         //Tạo đối tượng Connection
         Connection conn = null;
 

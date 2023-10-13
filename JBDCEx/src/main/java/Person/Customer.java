@@ -1,11 +1,5 @@
 package Person;
 
-import org.example.test.ConnectJDBC;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
 public class Customer {
     private int id;
     private String name;
