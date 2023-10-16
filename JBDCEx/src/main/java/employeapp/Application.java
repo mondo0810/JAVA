@@ -1,12 +1,13 @@
-package person;
+package employeapp;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
-    private static CustomerDAO customerDAO;
+public class Application {
+
+    private static EmployeeImpl employeeImpl;
 
     public static void Menu() {
         System.out.println("Welcome to Aptech Bank Online");
@@ -15,7 +16,8 @@ public class Main {
         System.out.println("3. Delete Customer");
         System.out.println("4. Find Customer by ID");
         System.out.println("5. Display all customer information");
-        System.out.println("6. Exit");
+        System.out.println("6. Create table Employee");
+        System.out.println("7. Exit");
     }
 
     public static void main(String[] args) {
@@ -26,7 +28,7 @@ public class Main {
             return;
         }
 
-        customerDAO = new CustomerDAO(conn);
+        employeeImpl = new EmployeeImpl(conn);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -55,6 +57,9 @@ public class Main {
                         displayAllCustomers();
                         break;
                     case 6:
+                        mySQLConnection.createEmployeeTable();
+                        break;
+                    case 7:
                         System.out.println("Exiting...");
                         break;
                     default:
@@ -64,7 +69,7 @@ public class Main {
                 e.printStackTrace();
             }
 
-        } while (choice != 6);
+        } while (choice != 7);
 
         try {
             conn.close();
@@ -77,43 +82,43 @@ public class Main {
         System.out.print("Enter customer name: ");
         String name = scanner.nextLine();
 
-        System.out.print("Enter customer email: ");
-        String email = scanner.nextLine();
+        System.out.print("Enter customer salary: ");
+        String salary = scanner.nextLine();
 
-        Customer customer = new Customer(0, name, email);
-        customerDAO.createCustomer(customer);
+        Employee employee = new Employee(0, name, salary);
+        employeeImpl.addEmployee(employee);
         System.out.println("Customer created successfully.");
     }
 
     private static void updateCustomer(Scanner scanner) throws SQLException {
         System.out.print("Enter customer ID to update: ");
         int customerId = scanner.nextInt();
-        scanner.nextLine();  // Consume the newline character
+        scanner.nextLine();
 
         System.out.print("Enter new name: ");
         String name = scanner.nextLine();
 
-        System.out.print("Enter new password: ");
-        String password = scanner.nextLine();
+        System.out.print("Enter new salary: ");
+        String salary = scanner.nextLine();
 
-        Customer updatedCustomer = new Customer(customerId, name, password);
-        customerDAO.updateCustomer(customerId, updatedCustomer);
+        Employee updatedEmployee = new Employee(customerId, name, salary);
+        employeeImpl.updateEmployee(customerId, updatedEmployee);
         System.out.println("Customer updated successfully.");
     }
 
     private static void deleteCustomer(Scanner scanner) throws SQLException {
         System.out.print("Enter customer ID to delete: ");
         int customerId = scanner.nextInt();
-        customerDAO.deleteCustomer(customerId);
+        employeeImpl.delEmployee(customerId);
         System.out.println("Customer deleted successfully.");
     }
 
     private static void findCustomerById(Scanner scanner) throws SQLException {
         System.out.print("Enter customer ID to find: ");
         int customerId = scanner.nextInt();
-        Customer customer = customerDAO.getCustomerById(customerId);
-        if (customer != null) {
-            System.out.println("Customer found: " + customer.getName());
+        Employee employee = employeeImpl.getEmployeeById(customerId);
+        if (employee != null) {
+            System.out.println("Customer found: " + employee.getName() + employee.getSalary());
         } else {
             System.out.println("Customer not found.");
         }
@@ -121,12 +126,12 @@ public class Main {
 
     private static void displayAllCustomers() throws SQLException {
         System.out.println("All customers:");
-        List<Customer> allCustomers = customerDAO.getAllCustomers();
+        List<Employee> allEmployees = employeeImpl.getAllEmployee();
 //        allCustomers.forEach(customer ->{
 //            System.out.println("Customer ID: " + customer.getId() + ", Name: " + customer.getName());
 //        });
-        for (Customer cust : allCustomers) {
-            System.out.println("Customer ID: " + cust.getId() + ", Name: " + cust.getName());
+        for (Employee cust : allEmployees) {
+            System.out.println("Customer ID: " + cust.getId() + ", Name: " + cust.getName() + ", Salary: " + cust.getSalary());
         }
     }
 }

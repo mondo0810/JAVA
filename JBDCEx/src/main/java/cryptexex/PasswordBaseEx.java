@@ -26,6 +26,6 @@ public class PasswordBaseEx {
         cipher.init(cipher.ENCRYPT_MODE, secretKey, param);
         String clear = "Encrypt for java";
         byte[] encrypted = cipher.doFinal(clear.getBytes());
-        Base64 encoder = new Base64Decoder();
+//        Base64 encoder = new Base64Decoder();
     }
 }

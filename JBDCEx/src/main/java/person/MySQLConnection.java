@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConnectJDBC {
+public class MySQLConnection {
     private String hostName = "localhost:3308";
     private String dbName = "java";
     private String username = "root";
