@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeImpl implements EmployeeDAO {
+public class EmployeeImpl implements EmployeeDAO<Employee> {
 
     private Connection conn;
 
