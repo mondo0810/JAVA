@@ -3,6 +3,8 @@ package org.example.view;
 
 import org.example.model.Book;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class BookView {
@@ -27,6 +29,28 @@ public class BookView {
         System.out.println("Author: " + book.getAuthor());
         System.out.println("Status: " + (book.isIs_borrowed() ? "Borrowed" : "Available"));
         System.out.println("--------------------------------------------------------------");
+    }
+
+    public void displayAllBorrowHistory(List<ResultSet> historyList) {
+        for (ResultSet resultSet : historyList) {
+            try {
+                while (resultSet.next()) {
+                    int borrow_id = resultSet.getInt("borrow_id");
+                    int book_id = resultSet.getInt("book_id");
+                    int ticket_id = resultSet.getInt("ticket_id");
+                    boolean is_returned = resultSet.getBoolean("is_returned");
+
+                    // Hiển thị thông tin lịch sử mượn sách
+                    System.out.println("Borrow ID: " + borrow_id);
+                    System.out.println("Book ID: " + book_id);
+                    System.out.println("Ticket ID: " + ticket_id);
+                    System.out.println("Is Returned: " + is_returned);
+                    System.out.println("------------------------------");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void displayMessage(String message) {

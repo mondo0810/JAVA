@@ -18,7 +18,8 @@ public class LibraryManagementSystem {
             System.out.println("3. View Book Details");
             System.out.println("4. Student Borrow Book");
             System.out.println("5. Student Return Book");
-            System.out.println("6. Exit");
+            System.out.println("6. Get All Borrow History");
+            System.out.println("7. Exit");
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
@@ -53,14 +54,17 @@ public class LibraryManagementSystem {
                     bookController.borrowBook(borrowBookId, studentId, borrowDate, dueDate);
                     break;
                 case 5:
-                    System.out.print("Enter ticket ID to return: ");
-                    int returnTicketId = scanner.nextInt();
-                    System.out.print("Enter return date (yyyy-MM-dd): ");
+                    System.out.print("Enter book ID to return: ");
+                    int returnBookId = scanner.nextInt();
+                    System.out.print("Enter student ID to return: ");
                     scanner.nextLine();
-                    String returnDate = scanner.nextLine();
-                    bookController.returnBook(returnTicketId, returnDate);
+                    int returnStudentId = scanner.nextInt();
+                    bookController.returnBook(returnBookId, returnStudentId);
                     break;
                 case 6:
+                    bookController.getAllBorrowHistory();
+                    break;
+                case 7:
                     System.out.println("Goodbye!");
                     System.exit(0);
                 default:

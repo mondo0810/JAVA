@@ -5,6 +5,7 @@ import org.example.model.Book;
 import org.example.service.BookService;
 import org.example.view.BookView;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 public class BookController {
@@ -21,6 +22,11 @@ public class BookController {
         bookView.displayBooks(books);
     }
 
+    public void getAllBorrowHistory() {
+        List<ResultSet> historys = bookService.getAllBorrowHistory();
+        bookView.displayAllBorrowHistory(historys);
+    }
+
     public void searchBooks(String code, String name) {
         List<Book> books = bookService.searchBooks(code, name);
         bookView.displayBooks(books);
@@ -35,18 +41,20 @@ public class BookController {
         boolean success = bookService.borrowBook(bookId, studentId, borrowDate, dueDate);
         if (success) {
             bookView.displayMessage("Book has been borrowed successfully.");
+            getAllBooks();
         } else {
             bookView.displayMessage("Failed to borrow the book.");
         }
     }
 
-    public void returnBook(int ticketId, String returnDate) {
-//        boolean success = bookService.returnBook(ticketId, returnDate);
-//        if (success) {
-//            bookView.displayMessage("Book has been returned successfully.");
-//        } else {
-//            bookView.displayMessage("Failed to return the book.");
-//        }
+    public void returnBook(int bookId, int studentId) {
+        boolean success = bookService.returnBook(bookId, studentId);
+        if (success) {
+            bookView.displayMessage("Book has been returned successfully.");
+            getAllBooks();
+        } else {
+            bookView.displayMessage("Failed to return the book.");
+        }
     }
 
 

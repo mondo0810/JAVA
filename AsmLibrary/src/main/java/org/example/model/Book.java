@@ -15,6 +15,10 @@ public class Book {
         this.is_borrowed = is_borrowed;
     }
 
+    public Book() {
+
+    }
+
     public int getBook_id() {
         return book_id;
     }

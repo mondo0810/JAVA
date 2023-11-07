@@ -4,17 +4,16 @@ public class BorrowHistory {
     private int borrow_id;
     private int book_id;
     private int ticket_id;
-    private String is_returned;
+    private int is_returned;
 
-    public BorrowHistory(int borrow_id, int book_id, int ticket_id, String is_returned) {
+    public BorrowHistory() {
+    }
+
+    public BorrowHistory(int borrow_id, int book_id, int ticket_id, int is_returned) {
         this.borrow_id = borrow_id;
         this.book_id = book_id;
         this.ticket_id = ticket_id;
         this.is_returned = is_returned;
-    }
-
-    public BorrowHistory() {
-
     }
 
     public int getBorrow_id() {
@@ -41,11 +40,11 @@ public class BorrowHistory {
         this.ticket_id = ticket_id;
     }
 
-    public String getIs_returned() {
+    public int getIs_returned() {
         return is_returned;
     }
 
-    public void setIs_returned(String is_returned) {
+    public void setIs_returned(int is_returned) {
         this.is_returned = is_returned;
     }
 }

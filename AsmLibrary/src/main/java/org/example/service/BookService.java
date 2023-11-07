@@ -5,6 +5,7 @@ import org.example.model.Book;
 import org.example.model.BorrowHistory;
 import org.example.model.BorrowTicket;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 public class BookService {
@@ -18,6 +19,9 @@ public class BookService {
         return bookDAO.getAllBooks();
     }
 
+    public List<ResultSet> getAllBorrowHistory() {
+        return bookDAO.getAllBorrowHistory();
+    }
     public List<Book> searchBooks(String code, String name) {
         return bookDAO.searchBooks(code, name);
     }
@@ -58,38 +62,18 @@ public class BookService {
         return success;
     }
 
-    public boolean returnBook(int bookId, int studentId, String returnDate) {
-        Book book = bookDAO.getBookById(bookId);
-        if (book == null) {
-            return false; // Sách không tồn tại
+    public boolean returnBook(int bookId, int studentId) {
+        boolean returnSuccess = bookDAO.returnBook(bookId, studentId);
+
+        if (returnSuccess) {
+            Book book = bookDAO.getBookById(bookId);
+            if (book != null) {
+                book.setIs_borrowed(false);
+                bookDAO.updateBookStatus(book);
+            }
         }
 
-        if (!book.isIs_borrowed()) {
-            return false; // Sách chưa được mượn
-        }
-
-        // Tìm thông tin phiếu mượn sách của học viên
-        BorrowTicket borrowTicket = bookDAO.findBorrowTicket(bookId, studentId);
-
-        if (borrowTicket == null) {
-            return false; // Không tìm thấy thông tin phiếu mượn
-        }
-
-        // Cập nhật thông tin trả sách trong phiếu mượn
-        borrowTicket.setDue_date(returnDate);
-
-        // Cập nhật trạng thái sách đã được trả
-        book.setIs_borrowed(false);
-
-        // Gọi DAO để thực hiện việc trả sách111
-        boolean success = bookDAO.returnBook(borrowTicket);
-
-        if (success) {
-            // Cập nhật trạng thái sách đã trả
-            bookDAO.updateBookStatus(book);
-        }
-
-        return success;
+        return returnSuccess;
     }
 
 

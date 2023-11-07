@@ -5,4 +5,6 @@ public class Student {
     private String student_name;
     private String student_email;
 
+    public Student(int studentId, String studentName) {
+    }
 }

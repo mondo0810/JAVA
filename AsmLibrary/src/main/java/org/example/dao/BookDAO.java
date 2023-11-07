@@ -4,6 +4,8 @@ import org.example.config.DatabaseConnection;
 import org.example.model.Book;
 import org.example.model.BorrowHistory;
 import org.example.model.BorrowTicket;
+import org.example.model.Student;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -175,18 +177,22 @@ public class BookDAO {
     }
 
 
-    public boolean returnBook(BorrowTicket borrowTicket, BorrowHistory borrowHistory) {
+    public boolean returnBook(int bookId, int studentId) {
         Connection connection = DatabaseConnection.connect();
 
-        // Thực hiện cập nhật bảng borrowhistory
-        String historyInsertQuery = "UPDATE borrowhistory SET is_returned = true WHERE ticket_id = ?";
-        try (PreparedStatement historyStatement = connection.prepareStatement(historyInsertQuery)) {
-            historyStatement.setInt(1, borrowTicket.getTicket_id());
+        // Thực hiện cập nhật bảng borrowhistory để đánh dấu sách đã trả
+        String historyUpdateQuery = "UPDATE borrowhistory AS bh\n" +
+                "LEFT JOIN borrowtickets AS bt ON bh.ticket_id = bt.ticket_id\n" +
+                "SET bh.is_returned = true\n" +
+                "WHERE bt.student_id = ? AND bh.book_id = ? AND bh.is_returned = 0\n";
+        try (PreparedStatement historyUpdateStatement = connection.prepareStatement(historyUpdateQuery)) {
+            historyUpdateStatement.setInt(1, bookId);
+            historyUpdateStatement.setInt(2, studentId);
 
-            int rowsUpdated = historyStatement.executeUpdate();
+            int rowsUpdated = historyUpdateStatement.executeUpdate();
 
             if (rowsUpdated <= 0) {
-                connection.rollback();
+                connection.rollback(); // Lỗi, hoàn tác giao dịch
                 return false;
             }
         } catch (SQLException e) {
@@ -194,25 +200,44 @@ public class BookDAO {
             return false;
         }
 
-        // Thực hiện cập nhật trạng thái sách đã được trả
-        String updateQuery = "UPDATE books SET is_borrowed = false WHERE book_id = ?";
-        try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
-            updateStatement.setInt(1, borrowHistory.getBook_id());
+        // Sử dụng phương thức updateBookStatus để cập nhật trạng thái sách đã trả
+        Book book = new Book();
+        book.setBook_id(bookId);
+        book.setIs_borrowed(false);
 
-            int rowsUpdated = updateStatement.executeUpdate();
+        boolean bookUpdateSuccess = updateBookStatus(book);
 
-            if (rowsUpdated <= 0) {
-                connection.rollback();
-                return false;
+        if (!bookUpdateSuccess) {
+            try {
+                connection.rollback(); // Lỗi, hoàn tác giao dịch
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
             return false;
         }
 
         DatabaseConnection.close(connection);
 
         return true;
+    }
+
+
+    public List<ResultSet> getAllBorrowHistory() {
+        List<ResultSet> results = new ArrayList<>();
+        Connection connection = DatabaseConnection.connect();
+
+        String query = "SELECT * FROM borrowhistory";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            results.add(resultSet);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DatabaseConnection.close(connection);
+        }
+
+        return results;
     }
 
     public void closeConnection() {
