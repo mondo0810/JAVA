@@ -1,4 +1,4 @@
-package model;
+package org.example.model;
 
 public class Book {
     private int book_id;
@@ -47,11 +47,11 @@ public class Book {
         this.author = author;
     }
 
-    public boolean getIsBorrowed() {
+    public boolean isIs_borrowed() {
         return is_borrowed;
     }
 
-    public void setIsBorrowed(boolean is_borrowed) {
+    public void setIs_borrowed(boolean is_borrowed) {
         this.is_borrowed = is_borrowed;
     }
 }

