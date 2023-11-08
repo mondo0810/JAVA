@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.entity;
 
 public class BorrowTicket {
     private int ticket_id;

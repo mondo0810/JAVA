@@ -1,10 +1,9 @@
 package org.example.dao;
 
 import org.example.config.DatabaseConnection;
-import org.example.model.Book;
-import org.example.model.BorrowHistory;
-import org.example.model.BorrowTicket;
-import org.example.model.Student;
+import org.example.entity.Book;
+import org.example.entity.BorrowHistory;
+import org.example.entity.BorrowTicket;
 
 import java.sql.*;
 import java.util.ArrayList;

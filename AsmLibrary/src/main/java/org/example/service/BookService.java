@@ -1,11 +1,10 @@
 package org.example.service;
 
 import org.example.dao.BookDAO;
-import org.example.model.Book;
-import org.example.model.BorrowHistory;
-import org.example.model.BorrowTicket;
+import org.example.entity.Book;
+import org.example.entity.BorrowHistory;
+import org.example.entity.BorrowTicket;
 
-import java.sql.ResultSet;
 import java.util.List;
 import java.util.Map;
 

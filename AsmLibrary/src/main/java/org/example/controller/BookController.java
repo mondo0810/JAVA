@@ -1,12 +1,10 @@
 package org.example.controller;
 
 
-import org.example.model.Book;
-import org.example.model.BorrowHistory;
+import org.example.entity.Book;
 import org.example.service.BookService;
 import org.example.view.BookView;
 
-import java.sql.ResultSet;
 import java.util.List;
 import java.util.Map;
 

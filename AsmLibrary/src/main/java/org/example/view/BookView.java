@@ -1,11 +1,8 @@
 package org.example.view;
 
 
-import org.example.model.Book;
-import org.example.model.BorrowHistory;
+import org.example.entity.Book;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -29,6 +26,7 @@ public class BookView {
         System.out.println("Code: " + book.getCode());
         System.out.println("Name: " + book.getName());
         System.out.println("Author: " + book.getAuthor());
+        System.out.println("Description: A  description of the book");
         System.out.println("Status: " + (book.isIs_borrowed() ? "Borrowed" : "Available"));
         System.out.println("--------------------------------------------------------------");
     }

@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.entity;
 
 public class Book {
     private int book_id;

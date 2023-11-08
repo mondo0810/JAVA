@@ -12,7 +12,7 @@ public class LibraryManagementSystem {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Library Management System");
+            System.out.println("Aptech Library");
             System.out.println("1. View All Books In Library");
             System.out.println("2. Search Books");
             System.out.println("3. View Book Details");
@@ -30,6 +30,7 @@ public class LibraryManagementSystem {
                     bookController.getAllBooks();
                     break;
                 case 2:
+                    bookController.getAllBooks();
                     System.out.print("Enter book code (eg:B003 or leave empty) : ");
                     String code = scanner.nextLine();
                     System.out.print("Enter book name (eg:Book C or leave empty): ");
@@ -37,11 +38,13 @@ public class LibraryManagementSystem {
                     bookController.searchBooks(code, name);
                     break;
                 case 3:
+                    bookController.getAllBooks();
                     System.out.print("Enter book ID: ");
                     int bookId = scanner.nextInt();
                     bookController.viewBookDetails(bookId);
                   break;
                 case 4:
+                    bookController.getAllBooks();
                     System.out.print("Enter book ID to borrow: ");
                     int borrowBookId = scanner.nextInt();
                     System.out.print("Enter student ID: ");
@@ -52,6 +55,7 @@ public class LibraryManagementSystem {
                     bookController.borrowBook(borrowBookId, studentId, dueDate);
                     break;
                 case 5:
+                    bookController.getAllBooks();
                     System.out.print("Enter book ID to return: ");
                     int returnBookId = scanner.nextInt();
                     System.out.print("Enter student ID to return: ");
