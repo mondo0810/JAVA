@@ -8,7 +8,9 @@ import org.example.model.Student;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class BookDAO {
@@ -128,11 +130,10 @@ public class BookDAO {
         Connection connection = DatabaseConnection.connect();
 
         // Thực hiện cập nhật bảng borrowtickets
-        String ticketInsertQuery = "INSERT INTO borrowtickets (student_id, borrow_date, due_date) VALUES (?, ?, ?)";
+        String ticketInsertQuery = "INSERT INTO borrowtickets (student_id, due_date) VALUES (?, ?)";
         try (PreparedStatement ticketStatement = connection.prepareStatement(ticketInsertQuery, PreparedStatement.RETURN_GENERATED_KEYS)) {
             ticketStatement.setInt(1, borrowTicket.getStudent_id());
-            ticketStatement.setString(2, borrowTicket.getBorrow_date());
-            ticketStatement.setString(3, borrowTicket.getDue_date());
+            ticketStatement.setString(2, borrowTicket.getDue_date());
 
             int rowsInserted = ticketStatement.executeUpdate();
 
@@ -222,23 +223,48 @@ public class BookDAO {
     }
 
 
-    public List<ResultSet> getAllBorrowHistory() {
-        List<ResultSet> results = new ArrayList<>();
+    public List<Map<String, Object>> getAllBorrowHistory() {
+        List<Map<String, Object>> borrowHistories = new ArrayList<>();
         Connection connection = DatabaseConnection.connect();
 
-        String query = "SELECT * FROM borrowhistory";
+        String query = "SELECT " +
+                "s.student_id, s.student_name, " +
+                "bt.ticket_id, bt.borrow_date, bt.due_date, " +
+                "bh.borrow_id, bh.book_id, bh.is_returned, " +
+                "b.code, b.name, b.author " +
+                "FROM students AS s " +
+                "LEFT JOIN borrowtickets AS bt ON s.student_id = bt.student_id " +
+                "LEFT JOIN borrowhistory AS bh ON bt.ticket_id = bh.ticket_id " +
+                "LEFT JOIN books AS b ON bh.book_id = b.book_id";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             ResultSet resultSet = preparedStatement.executeQuery();
-            results.add(resultSet);
+
+            while (resultSet.next()) {
+                Map<String, Object> borrowHistory = new HashMap<>();
+                borrowHistory.put("ticket_id", resultSet.getInt("ticket_id"));
+                borrowHistory.put("student_name", resultSet.getString("student_name"));
+                borrowHistory.put("code", resultSet.getString("code"));
+                borrowHistory.put("name", resultSet.getString("name"));
+                borrowHistory.put("author", resultSet.getString("author"));
+                borrowHistory.put("borrow_date", resultSet.getString("borrow_date"));
+                borrowHistory.put("due_date", resultSet.getString("due_date"));
+                borrowHistory.put("is_returned", resultSet.getInt("is_returned"));
+
+
+                borrowHistories.add(borrowHistory);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             DatabaseConnection.close(connection);
         }
 
-        return results;
+        return borrowHistories;
     }
+
+
+
 
     public void closeConnection() {
         DatabaseConnection.close(connection);

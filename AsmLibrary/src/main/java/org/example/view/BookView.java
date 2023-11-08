@@ -2,10 +2,12 @@ package org.example.view;
 
 
 import org.example.model.Book;
+import org.example.model.BorrowHistory;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public class BookView {
     public void displayBooks(List<Book> books) {
@@ -31,27 +33,21 @@ public class BookView {
         System.out.println("--------------------------------------------------------------");
     }
 
-    public void displayAllBorrowHistory(List<ResultSet> historyList) {
-        for (ResultSet resultSet : historyList) {
-            try {
-                while (resultSet.next()) {
-                    int borrow_id = resultSet.getInt("borrow_id");
-                    int book_id = resultSet.getInt("book_id");
-                    int ticket_id = resultSet.getInt("ticket_id");
-                    boolean is_returned = resultSet.getBoolean("is_returned");
-
-                    // Hiển thị thông tin lịch sử mượn sách
-                    System.out.println("Borrow ID: " + borrow_id);
-                    System.out.println("Book ID: " + book_id);
-                    System.out.println("Ticket ID: " + ticket_id);
-                    System.out.println("Is Returned: " + is_returned);
-                    System.out.println("------------------------------");
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+    public void displayAllBorrowHistory(List<Map<String, Object>> borrowHistories) {
+        System.out.println("Borrow History:");
+        for (Map<String, Object> history : borrowHistories) {
+            System.out.println("Ticket ID: " + history.get("ticket_id"));
+            System.out.println("Student Name: " + history.get("student_name"));
+            System.out.println("Book Code: " + history.get("code"));
+            System.out.println("Book Name: " + history.get("name"));
+            System.out.println("Book Author: " + history.get("author"));
+            System.out.println("Borrow Date: " + history.get("borrow_date"));
+            System.out.println("Due Date: " + history.get("due_date"));
+            System.out.println("Is Returned: " + (history.get("is_returned").equals(1) ? "Book returned" : "Books have not been returned"));
+            System.out.println("--------------------------------------");
         }
     }
+
 
     public void displayMessage(String message) {
         System.out.println(message);

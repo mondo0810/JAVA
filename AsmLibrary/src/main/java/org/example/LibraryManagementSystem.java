@@ -46,12 +46,10 @@ public class LibraryManagementSystem {
                     int borrowBookId = scanner.nextInt();
                     System.out.print("Enter student ID: ");
                     int studentId = scanner.nextInt();
-                    System.out.print("Enter borrow date (yyyy-MM-dd): ");
                     scanner.nextLine();
-                    String borrowDate = scanner.nextLine();
                     System.out.print("Enter due date (yyyy-MM-dd): ");
                     String dueDate = scanner.nextLine();
-                    bookController.borrowBook(borrowBookId, studentId, borrowDate, dueDate);
+                    bookController.borrowBook(borrowBookId, studentId, dueDate);
                     break;
                 case 5:
                     System.out.print("Enter book ID to return: ");

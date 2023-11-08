@@ -7,6 +7,7 @@ import org.example.model.BorrowTicket;
 
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.Map;
 
 public class BookService {
     private BookDAO bookDAO;
@@ -19,7 +20,7 @@ public class BookService {
         return bookDAO.getAllBooks();
     }
 
-    public List<ResultSet> getAllBorrowHistory() {
+    public List<Map<String, Object>> getAllBorrowHistory() {
         return bookDAO.getAllBorrowHistory();
     }
     public List<Book> searchBooks(String code, String name) {
@@ -30,7 +31,7 @@ public class BookService {
         return bookDAO.getBookById(bookId);
     }
 
-    public boolean borrowBook(int bookId, int studentId, String borrowDate, String dueDate) {
+    public boolean borrowBook(int bookId, int studentId, String dueDate) {
         Book book = bookDAO.getBookById(bookId);
         if (book == null) {
             return false; // Sách không tồn tại
@@ -43,7 +44,6 @@ public class BookService {
         // Tạo một phiếu mượn sách
         BorrowTicket borrowTicket = new BorrowTicket();
         borrowTicket.setStudent_id(studentId);
-        borrowTicket.setBorrow_date(borrowDate);
         borrowTicket.setDue_date(dueDate);
 
         // Tạo một bản ghi lịch sử mượn sách
