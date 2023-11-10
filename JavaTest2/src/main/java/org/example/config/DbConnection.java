@@ -33,7 +33,7 @@ public class DbConnection {
     private void handleSQLException(SQLException e) {
         System.err.println("Lỗi kết nối cơ sở dữ liệu:");
         e.printStackTrace();
-        // Xử lý lỗi tùy theo yêu cầu của bạn
+
     }
 
     public static void main(String[] args) {
